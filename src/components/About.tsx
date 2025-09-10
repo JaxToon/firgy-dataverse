@@ -1,5 +1,21 @@
 import { Card } from "@/components/ui/card";
-import { GraduationCap, Award, Target } from "lucide-react";
+import { 
+  GraduationCap, 
+  Award, 
+  Target, 
+  Code2, 
+  Brain, 
+  Zap, 
+  Database, 
+  BarChart3, 
+  TrendingUp, 
+  GitBranch, 
+  Container, 
+  FileCode, 
+  Grid3x3, 
+  Atom, 
+  Cloud 
+} from "lucide-react";
 
 const About = () => {
   return (
@@ -57,26 +73,30 @@ const About = () => {
             
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {[
-                { name: "Python", color: "primary" },
-                { name: "TensorFlow", color: "accent" },
-                { name: "PyTorch", color: "data-purple" },
-                { name: "SQL", color: "data-cyan" },
-                { name: "Tableau", color: "primary" },
-                { name: "Power BI", color: "accent" },
-                { name: "Git", color: "data-purple" },
-                { name: "Docker", color: "data-cyan" },
-                { name: "Jupyter", color: "primary" },
-                { name: "Pandas", color: "accent" },
-                { name: "Scikit-learn", color: "data-purple" },
-                { name: "AWS", color: "data-cyan" }
-              ].map((tool, index) => (
-                <div 
-                  key={index} 
-                  className={`data-card p-3 text-center rounded-lg border-${tool.color}/20 hover:border-${tool.color}/40 transition-all duration-300`}
-                >
-                  <span className={`font-medium text-${tool.color}`}>{tool.name}</span>
-                </div>
-              ))}
+                { name: "Python", icon: Code2, color: "primary" },
+                { name: "TensorFlow", icon: Brain, color: "accent" },
+                { name: "PyTorch", icon: Zap, color: "data-purple" },
+                { name: "SQL", icon: Database, color: "data-cyan" },
+                { name: "Tableau", icon: BarChart3, color: "primary" },
+                { name: "Power BI", icon: TrendingUp, color: "accent" },
+                { name: "Git", icon: GitBranch, color: "data-purple" },
+                { name: "Docker", icon: Container, color: "data-cyan" },
+                { name: "Jupyter", icon: FileCode, color: "primary" },
+                { name: "Pandas", icon: Grid3x3, color: "accent" },
+                { name: "Scikit-learn", icon: Atom, color: "data-purple" },
+                { name: "AWS", icon: Cloud, color: "data-cyan" }
+              ].map((tool, index) => {
+                const IconComponent = tool.icon;
+                return (
+                  <div 
+                    key={index} 
+                    className={`data-card p-4 text-center rounded-lg border-${tool.color}/20 hover:border-${tool.color}/40 transition-all duration-300`}
+                  >
+                    <IconComponent className={`w-8 h-8 text-${tool.color} mx-auto mb-2`} />
+                    <span className={`font-medium text-${tool.color} text-sm`}>{tool.name}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
