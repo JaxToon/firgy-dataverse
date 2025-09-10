@@ -51,29 +51,30 @@ const About = () => {
             </div>
           </div>
 
-          {/* Skills Grid */}
+          {/* Tools Grid */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold mb-6">Core Competencies</h3>
+            <h3 className="text-2xl font-bold mb-6">Tools I Use</h3>
             
-            <div className="space-y-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {[
-                { skill: "Machine Learning & AI", level: 95, color: "primary" },
-                { skill: "Data Analysis & Visualization", level: 90, color: "accent" },
-                { skill: "Python & TensorFlow", level: 88, color: "data-purple" },
-                { skill: "Leadership & Team Management", level: 92, color: "data-cyan" },
-                { skill: "Research & Innovation", level: 85, color: "primary" }
-              ].map((item, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="font-medium">{item.skill}</span>
-                    <span className="text-sm text-muted-foreground">{item.level}%</span>
-                  </div>
-                  <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                    <div
-                      className={`h-full bg-${item.color} rounded-full transition-all duration-1000 ease-out`}
-                      style={{ width: `${item.level}%` }}
-                    />
-                  </div>
+                { name: "Python", color: "primary" },
+                { name: "TensorFlow", color: "accent" },
+                { name: "PyTorch", color: "data-purple" },
+                { name: "SQL", color: "data-cyan" },
+                { name: "Tableau", color: "primary" },
+                { name: "Power BI", color: "accent" },
+                { name: "Git", color: "data-purple" },
+                { name: "Docker", color: "data-cyan" },
+                { name: "Jupyter", color: "primary" },
+                { name: "Pandas", color: "accent" },
+                { name: "Scikit-learn", color: "data-purple" },
+                { name: "AWS", color: "data-cyan" }
+              ].map((tool, index) => (
+                <div 
+                  key={index} 
+                  className={`data-card p-3 text-center rounded-lg border-${tool.color}/20 hover:border-${tool.color}/40 transition-all duration-300`}
+                >
+                  <span className={`font-medium text-${tool.color}`}>{tool.name}</span>
                 </div>
               ))}
             </div>
