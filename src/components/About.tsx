@@ -1,21 +1,11 @@
 import { Card } from "@/components/ui/card";
-import { 
-  GraduationCap, 
-  Award, 
-  Target, 
-  Code2, 
-  Brain, 
-  Zap, 
-  Database, 
-  BarChart3, 
-  TrendingUp, 
-  GitBranch, 
-  Container, 
-  FileCode, 
-  Grid3x3, 
-  Atom, 
-  Cloud 
-} from "lucide-react";
+import { GraduationCap, Award, Target } from "lucide-react";
+
+// Import your custom logos here
+// import pythonLogo from "@/assets/logos/python.png";
+// import tensorflowLogo from "@/assets/logos/tensorflow.png";
+// import pytorchLogo from "@/assets/logos/pytorch.png";
+// ... add more logo imports
 
 const About = () => {
   return (
@@ -73,30 +63,39 @@ const About = () => {
             
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {[
-                { name: "Python", icon: Code2, color: "primary" },
-                { name: "TensorFlow", icon: Brain, color: "accent" },
-                { name: "PyTorch", icon: Zap, color: "data-purple" },
-                { name: "SQL", icon: Database, color: "data-cyan" },
-                { name: "Tableau", icon: BarChart3, color: "primary" },
-                { name: "Power BI", icon: TrendingUp, color: "accent" },
-                { name: "Git", icon: GitBranch, color: "data-purple" },
-                { name: "Docker", icon: Container, color: "data-cyan" },
-                { name: "Jupyter", icon: FileCode, color: "primary" },
-                { name: "Pandas", icon: Grid3x3, color: "accent" },
-                { name: "Scikit-learn", icon: Atom, color: "data-purple" },
-                { name: "AWS", icon: Cloud, color: "data-cyan" }
-              ].map((tool, index) => {
-                const IconComponent = tool.icon;
-                return (
-                  <div 
-                    key={index} 
-                    className={`data-card p-4 text-center rounded-lg border-${tool.color}/20 hover:border-${tool.color}/40 transition-all duration-300`}
-                  >
-                    <IconComponent className={`w-8 h-8 text-${tool.color} mx-auto mb-2`} />
-                    <span className={`font-medium text-${tool.color} text-sm`}>{tool.name}</span>
-                  </div>
-                );
-              })}
+                { name: "Python", logo: null, color: "primary" },
+                { name: "TensorFlow", logo: null, color: "accent" },
+                { name: "PyTorch", logo: null, color: "data-purple" },
+                { name: "SQL", logo: null, color: "data-cyan" },
+                { name: "Tableau", logo: null, color: "primary" },
+                { name: "Power BI", logo: null, color: "accent" },
+                { name: "Git", logo: null, color: "data-purple" },
+                { name: "Docker", logo: null, color: "data-cyan" },
+                { name: "Jupyter", logo: null, color: "primary" },
+                { name: "Pandas", logo: null, color: "accent" },
+                { name: "Scikit-learn", logo: null, color: "data-purple" },
+                { name: "AWS", logo: null, color: "data-cyan" }
+              ].map((tool, index) => (
+                <div 
+                  key={index} 
+                  className={`data-card p-4 text-center rounded-lg border-${tool.color}/20 hover:border-${tool.color}/40 transition-all duration-300`}
+                >
+                  {tool.logo ? (
+                    <img 
+                      src={tool.logo} 
+                      alt={`${tool.name} logo`}
+                      className="w-8 h-8 mx-auto mb-2 object-contain"
+                    />
+                  ) : (
+                    <div className={`w-8 h-8 mx-auto mb-2 bg-${tool.color}/20 rounded flex items-center justify-center`}>
+                      <span className={`text-${tool.color} text-xs font-bold`}>
+                        {tool.name.slice(0, 2).toUpperCase()}
+                      </span>
+                    </div>
+                  )}
+                  <span className={`font-medium text-${tool.color} text-sm`}>{tool.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
